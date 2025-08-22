@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-21 15:42:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "column_break_pets",
+  "year",
+  "month",
+  "section_break_dnxr",
+  "payroll_detail",
+  "section_break_qjge",
+  "summary_by_type",
+  "section_break_xono",
+  "monthly_payroll_totals",
+  "section_break_avbc",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "MPAY-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
+   "reqd": 1
+  },
+  {
+   "columns": 11,
+   "fieldname": "payroll_detail",
+   "fieldtype": "Table",
+   "label": "Payroll Detail",
+   "options": "Monthly Payroll Detail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Monthly Payroll",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_dnxr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_avbc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_pets",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_qjge",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 11,
+   "fieldname": "summary_by_type",
+   "fieldtype": "Table",
+   "label": "Summary By Type",
+   "options": "Monthly Payroll Summary"
+  },
+  {
+   "fieldname": "section_break_xono",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "monthly_payroll_totals",
+   "fieldtype": "Table",
+   "label": "Monthly Payroll Totals",
+   "options": "Monthly Payroll Totals"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-22 13:03:26.249591",
+ "modified_by": "Administrator",
+ "module": "School Payroll",
+ "name": "Monthly Payroll",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "HR User",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "month"
+}

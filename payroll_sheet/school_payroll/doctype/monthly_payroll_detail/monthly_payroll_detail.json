@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "creation": "2025-08-21 15:42:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "gender",
+  "employee_type",
+  "column_break_ypvo",
+  "take_home",
+  "apply_tax",
+  "gross_pay",
+  "paye",
+  "rssb_employer",
+  "rssb_employee",
+  "maternity_employer",
+  "maternity_employee",
+  "net_salary",
+  "cbhi",
+  "take_home_2"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.gender",
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "Gender",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "\nAcademic\nAdministrative\nSupport",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "apply_tax",
+   "fieldtype": "Check",
+   "label": "Apply Tax"
+  },
+  {
+   "fieldname": "take_home",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Take Home",
+   "non_negative": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "gross_pay",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Gross Pay",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "paye",
+   "fieldtype": "Currency",
+   "label": "PAYE",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "rssb_employer",
+   "fieldtype": "Currency",
+   "label": "RSSB Employer",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "rssb_employee",
+   "fieldtype": "Currency",
+   "label": "RSSB Employee",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "maternity_employer",
+   "fieldtype": "Currency",
+   "label": "Maternity Leave Employer",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "maternity_employee",
+   "fieldtype": "Currency",
+   "label": "Maternity Leave Employee",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "net_salary",
+   "fieldtype": "Currency",
+   "label": "Net Salary",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "cbhi",
+   "fieldtype": "Currency",
+   "label": "CBHI",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "take_home_2",
+   "fieldtype": "Currency",
+   "label": "Take Home 2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ypvo",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-22 13:59:46.969674",
+ "modified_by": "Administrator",
+ "module": "School Payroll",
+ "name": "Monthly Payroll Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

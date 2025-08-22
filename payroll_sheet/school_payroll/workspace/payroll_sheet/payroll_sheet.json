@@ -1,0 +1,47 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"COrnNi7NRW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Payroll Sheet</span>\",\"col\":12}},{\"id\":\"dhRX40-x09\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"GH35io2DbC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"id\":\"QQ9OLe9p3r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Monthly Payroll\",\"col\":3}},{\"id\":\"zbFkmzDros\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "creation": "2025-08-21 09:54:03.709524",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "money-coins-1",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Payroll Sheet",
+ "links": [],
+ "modified": "2025-08-21 20:28:36.927833",
+ "modified_by": "Administrator",
+ "module": "School Payroll",
+ "name": "Payroll Sheet",
+ "number_cards": [],
+ "owner": "yeshiwas@gmail.com",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 32.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Monthly Payroll",
+   "link_to": "Monthly Payroll",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "format": "{} Active",
+   "label": "Employee",
+   "link_to": "Employee",
+   "stats_filter": "[[\"Employee\",\"status\",\"=\",\"Active\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Payroll Sheet"
+}
