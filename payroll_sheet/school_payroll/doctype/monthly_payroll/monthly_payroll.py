@@ -201,8 +201,8 @@ class MonthlyPayroll(Document):
                 "employee_type": t,
                 "employee_count": 0,
                 "advance_pay": 0,
-                "net_salary": 0,
-                "net_minus_advance": 0,
+                "take_home": 0,  # renamed from net_salary
+                "net_minus_advance": 0,  # will recalc later
                 "cost_to_company": 0
             }
 
@@ -211,33 +211,34 @@ class MonthlyPayroll(Document):
             t = row.employee_type
             if t in summary:
                 summary[t]["employee_count"] += 1
-                summary[t]["advance_pay"] += row.take_home or 0
-                summary[t]["net_salary"] += row.net_salary or 0
+                summary[t]["advance_pay"] =  0 # for now
+                summary[t]["take_home"] += row.take_home or 0  # Net Salary becomes Take Home in summary
                 summary[t]["cost_to_company"] += (
                     row.gross_pay or 0
                 ) + (row.rssb_employer or 0) + (row.maternity_employer or 0)
 
-        # Calculate Net - Advance and total row
+        # Calculate Net - Advance (Take Home - Advance Pay) and total row
         total = {
             "employee_type": "Total",
             "employee_count": 0,
             "advance_pay": 0,
-            "net_salary": 0,
+            "take_home": 0,
             "net_minus_advance": 0,
             "cost_to_company": 0
         }
 
-        self.summary_by_type = []  # child table field
+        self.summary_by_type = []  # clear existing child table
 
         for t, data in summary.items():
-            data["net_minus_advance"] = data["net_salary"] - data["advance_pay"]
+            data["net_minus_advance"] = data["take_home"] - data["advance_pay"]
             self.append("summary_by_type", data)
             for key in total:
                 if key in data and isinstance(data[key], (int, float)):
                     total[key] += data[key]
 
-        total["net_minus_advance"] = total["net_salary"] - total["advance_pay"]
+        total["net_minus_advance"] = total["take_home"] - total["advance_pay"]
         self.append("summary_by_type", total)
+
     def calculate_totals(self):
         """
         Calculate totals for the entire payroll month.
