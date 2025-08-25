@@ -58,10 +58,10 @@
   },
   {
    "fieldname": "payment_method",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Payment Method",
-   "options": "\nCash\nBank\nMobile Money",
+   "options": "Payment Method",
    "reqd": 1
   },
   {
@@ -123,7 +123,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-25 19:31:12.967048",
+ "modified": "2025-08-25 19:33:42.072469",
  "modified_by": "Administrator",
  "module": "School Payroll",
  "name": "Payment",
