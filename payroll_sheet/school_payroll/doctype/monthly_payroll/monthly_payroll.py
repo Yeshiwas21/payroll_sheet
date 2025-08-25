@@ -237,9 +237,7 @@ class MonthlyPayroll(Document):
                 summary[t]["employee_count"] += 1
                 summary[t]["advance_pay"] +=  row.advance_pay or 0
                 summary[t]["take_home"] += row.take_home or 0  # Net Salary becomes Take Home in summary
-                summary[t]["cost_to_company"] += (
-                    row.gross_pay or 0
-                ) + (row.rssb_employer or 0) + (row.maternity_employer or 0)
+                summary[t]["cost_to_company"] += (row.gross_pay or 0) 
 
         # Calculate Net - Advance (Take Home - Advance Pay) and total row
         total = {
