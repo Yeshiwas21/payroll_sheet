@@ -103,6 +103,7 @@ class MonthlyPayroll(Document):
     def validate(self):
         # Prevent duplicates based on Company + Month + Year
         self.check_unique_company_month_year()
+        self.get_advance_pay()
 
         # Calculate every child row using gross-checking against Take Home (target TH2)
         for row in (self.payroll_detail or []):  # child table fieldname
@@ -128,9 +129,32 @@ class MonthlyPayroll(Document):
         )
         if exists:
             frappe.throw(
-                f"A payroll for Company '{self.company}', Month '{self.month}' and Year '{self.year}' already exists."
+                f"A payroll for Company <b>'{self.company}'</b>, Month <b>'{self.month}'</b> and Year <b>'{self.year}'</b> already exists."
             )
 
+    def get_advance_pay(self):
+        for row in self.payroll_detail:
+            employee = row.employee
+
+            # fetch payment amount for this employee in same year & payroll month
+            payment = frappe.db.get_value(
+                "Payment",
+                {
+                    "employee": employee,
+                    "payroll_month": self.month,
+                    "year": self.year,
+                    "type_of_payment": "Advance Pay",
+                    "docstatus": 1
+                },
+                "amount"
+            )
+
+            if payment:
+                # assign to row (better than overwriting self.advance_pay for all)
+                row.advance_pay = payment
+            else:
+                row.advance_pay = 0
+    
     def calculate_row(self, row):
         target_th = float(row.take_home or 0)
 
@@ -188,7 +212,7 @@ class MonthlyPayroll(Document):
         for row in (self.payroll_detail or []):
             if row.employee:
                 if row.employee in seen:
-                    frappe.throw(f"Employee '{row.employee}' is added more than once in this Monthly Payroll.")
+                    frappe.throw(f"Employee <b>'{row.employee}' </b> is added more than once in this Monthly Payroll.")
                 seen.add(row.employee)
 
     def calculate_summary(self):
@@ -211,7 +235,7 @@ class MonthlyPayroll(Document):
             t = row.employee_type
             if t in summary:
                 summary[t]["employee_count"] += 1
-                summary[t]["advance_pay"] =  0 # for now
+                summary[t]["advance_pay"] +=  row.advance_pay or 0
                 summary[t]["take_home"] += row.take_home or 0  # Net Salary becomes Take Home in summary
                 summary[t]["cost_to_company"] += (
                     row.gross_pay or 0
@@ -245,8 +269,8 @@ class MonthlyPayroll(Document):
         """
         total_cost = 0
         advance_pay = 0
-        net_salary = 0
-        net_minus_advance = 0
+        take_home = 0
+        net_advance = 0
         total_paye = 0
         total_rssb = 0
         total_maternity = 0
@@ -254,14 +278,14 @@ class MonthlyPayroll(Document):
 
         for row in self.payroll_detail:
             total_cost += row.gross_pay or 0
-            advance_pay += row.take_home or 0
-            net_salary += row.net_salary or 0
+            advance_pay = row.advance_pay or 0
+            take_home += row.take_home or 0
             total_paye += row.paye or 0
             total_rssb += (row.rssb_employee or 0) + (row.rssb_employer or 0)
             total_maternity += (row.maternity_employee or 0) + (row.maternity_employer or 0)
             total_cbhi += row.cbhi or 0
 
-        net_minus_advance = net_salary - advance_pay
+        net_advance = take_home - advance_pay
         total_taxes = total_paye + total_rssb + total_maternity + total_cbhi
 
         # Clear and append to the child table
@@ -269,8 +293,8 @@ class MonthlyPayroll(Document):
         self.append("monthly_payroll_totals", {
             "total_cost": total_cost,
             "advance_pay": advance_pay,
-            "net_salary": net_salary,
-            "net_minus_advance": net_minus_advance,
+            "take_home": take_home,
+            "net_advance": net_advance,
             "total_paye": total_paye,
             "total_rssb": total_rssb,
             "total_maternity": total_maternity,

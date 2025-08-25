@@ -1,104 +1,104 @@
 {
- "actions": [],
- "creation": "2025-08-22 12:00:00",
- "doctype": "DocType",
- "editable_grid": 1,
- "engine": "InnoDB",
- "field_order": [
-  "total_cost",
-  "advance_pay",
-  "net_salary",
-  "net_minus_advance",
-  "total_paye",
-  "total_rssb",
-  "total_maternity",
-  "total_cbhi",
-  "total_taxes"
- ],
- "fields": [
-  {
-   "columns": 1,
-   "fieldname": "total_cost",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Cost",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "advance_pay",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Advanced Pay",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "net_salary",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Net",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "net_minus_advance",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Net \u2013 Advance Pay",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "total_paye",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total PAYE",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "total_rssb",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total RSSB",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "total_maternity",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Maternity Leave",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "total_cbhi",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total CBHI",
-   "read_only": 1
-  },
-  {
-   "columns": 1,
-   "fieldname": "total_taxes",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Total Taxes",
-   "read_only": 1
-  }
- ],
- "istable": 1,
- "links": [],
- "modified": "2025-08-22 13:01:42.895362",
- "modified_by": "Administrator",
- "module": "School Payroll",
- "name": "Monthly Payroll Totals",
- "owner": "Administrator",
- "permissions": [],
- "row_format": "Dynamic",
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "creation": "2025-08-22 12:00:00",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "total_cost",
+        "advance_pay",
+        "take_home",
+        "net_advance",
+        "total_paye",
+        "total_rssb",
+        "total_maternity",
+        "total_cbhi",
+        "total_taxes"
+    ],
+    "fields": [
+        {
+            "columns": 1,
+            "fieldname": "total_cost",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total Cost",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "advance_pay",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Advanced Pay",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "take_home",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Take Home",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "net_advance",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Net \u2013 Advance Pay",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "total_paye",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total PAYE",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "total_rssb",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total RSSB",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "total_maternity",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total Maternity Leave",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "total_cbhi",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total CBHI",
+            "read_only": 1
+        },
+        {
+            "columns": 1,
+            "fieldname": "total_taxes",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Total Taxes",
+            "read_only": 1
+        }
+    ],
+    "istable": 1,
+    "links": [],
+    "modified": "2025-08-22 13:01:42.895362",
+    "modified_by": "Administrator",
+    "module": "School Payroll",
+    "name": "Monthly Payroll Totals",
+    "owner": "Administrator",
+    "permissions": [],
+    "row_format": "Dynamic",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
 }

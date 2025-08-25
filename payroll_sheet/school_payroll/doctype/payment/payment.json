@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-24 08:14:54.163980",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "employee",
+  "employee_name",
+  "year",
+  "payroll_month",
+  "column_break_aynv",
+  "amount",
+  "type_of_payment",
+  "payment_method",
+  "payment_date",
+  "section_break_hfiy",
+  "remarks",
+  "section_break_plup",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payroll_month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payroll Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type_of_payment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type of Payment",
+   "options": "\nAdvance Pay\nRegular Pay",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Payment Method",
+   "options": "\nCash\nBank",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Payment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_aynv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_hfiy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_plup",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "PAYMENT-.YYYY.-",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-24 19:48:04.172499",
+ "modified_by": "Administrator",
+ "module": "School Payroll",
+ "name": "Payment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

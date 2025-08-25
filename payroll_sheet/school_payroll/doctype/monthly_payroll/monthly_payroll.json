@@ -97,6 +97,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "columns": 11,
    "fieldname": "monthly_payroll_totals",
    "fieldtype": "Table",
    "label": "Monthly Payroll Totals",
@@ -105,7 +106,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-22 13:03:26.249591",
+ "modified": "2025-08-24 18:46:08.182711",
  "modified_by": "Administrator",
  "module": "School Payroll",
  "name": "Monthly Payroll",
