@@ -276,7 +276,7 @@ class MonthlyPayroll(Document):
 
         for row in self.payroll_detail:
             total_cost += row.gross_pay or 0
-            advance_pay = row.advance_pay or 0
+            advance_pay += row.advance_pay or 0
             take_home += row.take_home or 0
             total_paye += row.paye or 0
             total_rssb += (row.rssb_employee or 0) + (row.rssb_employer or 0)
