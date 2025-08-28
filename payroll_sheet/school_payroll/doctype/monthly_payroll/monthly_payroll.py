@@ -299,3 +299,17 @@ class MonthlyPayroll(Document):
             "total_cbhi": total_cbhi,
             "total_taxes": total_taxes
         })
+    def before_save(self):
+        self.sort_payroll_detail_by_employee_name()
+
+    def sort_payroll_detail_by_employee_name(self):
+        if not self.payroll_detail:
+            return
+        # sort child table by employee name
+        self.payroll_detail = sorted(
+            self.payroll_detail, 
+            key=lambda x:x.employee_name if x.employee_name else ""
+        )
+        # re-assign the index (row number) sequentially
+        for i, d in enumerate(self.payroll_detail, start=1):
+            d.idx = i
