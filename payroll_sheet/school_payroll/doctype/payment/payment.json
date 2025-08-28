@@ -123,7 +123,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-25 19:33:42.072469",
+ "modified": "2025-08-28 21:20:13.763685",
  "modified_by": "Administrator",
  "module": "School Payroll",
  "name": "Payment",
@@ -131,6 +131,8 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -145,6 +147,8 @@
    "write": 1
   },
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -159,6 +163,8 @@
    "write": 1
   },
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,

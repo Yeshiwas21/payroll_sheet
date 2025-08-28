@@ -21,6 +21,7 @@ class Payment(Document):
                 "employee": self.employee,
                 "year": self.year,
                 "payroll_month": self.payroll_month,
+                "docstatus":["!=", 2], # Execlude Cancelled documents
                 "name": ["!=", self.name]  # exclude current document
             }
         )
